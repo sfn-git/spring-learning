@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <Title>Hotel Room Reservations</Title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Room Reservations Page</h1>
+        <table class="table table-striped">
+            <tr>
+                <td>Room ER</td>
+                <td>Room Number</td>
+                <td>Guest</td>
+            </tr>
+            <tr th:each="roomReservation: ${roomReservations}">
+                <td th:text="${roomReservation.roomName}">Room Name</td>
+                <td th:text="${roomReservation.roomNumber}">Room Number</td>
+                <td th:text="${roomReservation.lastName} != null ? ${roomReservation.lastName} + ', ' + ${roomReservation.firstName} : 'VACANT'">Guest Name</td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
